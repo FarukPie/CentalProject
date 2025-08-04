@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cental.DTOLayer\Cental.DTOLayer.csproj" />
     <ProjectReference Include="..\Cental.EntityLayer\Cental.EntityLayer.csproj" />
   </ItemGroup>
 

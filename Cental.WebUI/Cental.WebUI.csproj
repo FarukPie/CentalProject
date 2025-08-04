@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cental.DataAccessLayer\Cental.DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
