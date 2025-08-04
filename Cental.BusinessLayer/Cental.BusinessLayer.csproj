@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cental.DataAccessLayer\Cental.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Cental.DTOLayer\Cental.DTOLayer.csproj" />
+  </ItemGroup>
+
 </Project>
