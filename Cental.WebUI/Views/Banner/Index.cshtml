@@ -1,0 +1,35 @@
+﻿@model List<ResultBannerDto>
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    int count = 0;
+}
+<h1>Banner</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Image Url</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>>@count</td>
+            <td><img src="@item.ImageUrl" style="width:75px; height:75px" /></td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+
+            <td><a asp-action="DeleteBanner" asp-route-id="@item.BannerID" class="btn btn-danger">Delete</a></td>
+            <td><a asp-action="UpdateBanner" asp-route-id="@item.BannerID" class="btn btn-info">Update</a></td>
+        </tr>
+    }
+</table>
+
+<a asp-action="CreateBanner" asp-controller="Banner" class="btn btn-outline-primary">Add New Baner Section</a>
+
