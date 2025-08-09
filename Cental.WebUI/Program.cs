@@ -1,6 +1,20 @@
+﻿using Cental.BusinessLayer.Abstract;
+using Cental.BusinessLayer.Concreate;
+using Cental.DataAccessLayer.Abstract;
+using Cental.DataAccessLayer.Concreate;
+using Cental.DataAccessLayer.Context;
+using Cental.DataAccessLayer.Repostories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<CentalContext>();
+builder.Services.AddScoped<IAboutService,AboutManager>();//about service gordugun zaman gıt about manager sınıfından bır nesne ornegı al ve ıslemı onunla yap.
+builder.Services.AddScoped<IAboutDal,EfAboutDal>();
+
+builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepostories<>));
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

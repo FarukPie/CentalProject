@@ -1,0 +1,53 @@
+﻿@model UpdateAboutDto
+@{
+    ViewData["Title"] = "UpdateAbout";
+}
+
+<h3>UpdateAbout</h3>
+<form method="post">
+    <input type="hidden" asp-for="AboutID" />
+    <label>Vision</label>
+    <input type="text" asp-for="Vision" class="form-control" />
+    <br />
+    <label>Mission</label>
+    <input type="text" asp-for="Mission" class="form-control" />
+    <br />
+    <label>Top Description</label>
+    <input type="text" asp-for="Description1" class="form-control" />
+    <br />
+    <label>Sub Description</label>
+    <input type="text" asp-for="Description2" class="form-control" />
+    <br />
+    <label>Start Year</label>
+    <input type="number" asp-for="StartYear" class="form-control" />
+    <br />
+    <label>Image Url 1</label>
+    <input type="text" asp-for="ImageUrl1" class="form-control" />
+    <br />
+    <label>Image Url 2</label>
+    <input type="text" asp-for="ImageUrl2" class="form-control" />
+    <br />
+    <label>Article 1</label>
+    <input type="text" asp-for="item1" class="form-control" />
+    <br />
+    <label>Article 2</label>
+    <input type="text" asp-for="item2" class="form-control" />
+    <br />
+    <label>Article 3</label>
+    <input type="text" asp-for="item3" class="form-control" />
+    <br />
+    <label>Article 4</label>
+    <input type="text" asp-for="item4" class="form-control" />
+    <br />
+    <label>Name Surname</label>
+    <input type="text" asp-for="NameSurname" class="form-control" />
+    <br />
+    <label>Job Title</label>
+    <input type="text" asp-for="JobTitle" class="form-control" />
+    <br />
+    <label>Profile Picture</label>
+    <input type="text" asp-for="ProfilePic" class="form-control" />
+    <br />
+    <button class="brn btn-outline-primary">Update</button>
+
+</form>
