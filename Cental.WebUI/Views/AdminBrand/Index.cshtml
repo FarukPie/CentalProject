@@ -1,0 +1,32 @@
+﻿@model List<ResultBrandDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+@{
+   int count = 0;
+}
+<h1>Brand</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Brand Name</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>>@count</td>
+            <td>@item.BrandName</td>
+            <td><a asp-action="DeleteBrand" asp-route-id="@item.BrandID" class="btn btn-danger">Delete</a></td>
+            <td><a asp-action="UpdateBrand" asp-route-id="@item.BrandID" class="btn btn-info">Update</a></td>
+        </tr>
+    }
+</table>
+
+<a asp-action="CreateBrand" asp-controller="AdminBrand" class="btn btn-outline-primary">Add New Brand </a>
+
+

@@ -1,0 +1,20 @@
+﻿@model ResultBannerDto
+@{
+    ViewData["Title"] = "CreateBanner";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h1>CreateBanner</h1>
+<form method="post">
+    <label>Vision</label>
+    <input type="hidden" asp-for="BannerID" class="form-control" />
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <input type="text" asp-for="Description" class="form-control" />
+    <br />
+     <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <button class="brn btn-outline-primary">Save</button>
+
+</form>
+
