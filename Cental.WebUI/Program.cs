@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<CentalContext>();
-
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IAboutService,AboutManager>();//about service gordugun zaman gıt about manager sınıfından bır nesne ornegı al ve ıslemı onunla yap.
@@ -21,6 +20,11 @@ builder.Services.AddScoped<IBannerDal, EfBannerDal>();
 
 builder.Services.AddScoped<IBrandService, BrandManager>();
 builder.Services.AddScoped<IBrandDal, EfBrandDal>();
+
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
+builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
+
+
 
 
 builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepostories<>));
