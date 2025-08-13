@@ -1,0 +1,18 @@
+﻿@model ResultBrandDto
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h1>UpdateBrand</h1>
+<form method="post">
+    <input type="hidden" asp-for="BrandID" />
+    <label>Brand Name</label>
+    <input type="text" asp-for="BrandName" class="form-control" />
+    <br />
+
+
+    <button class="brn btn-outline-primary">Update</button>
+
+</form>
+

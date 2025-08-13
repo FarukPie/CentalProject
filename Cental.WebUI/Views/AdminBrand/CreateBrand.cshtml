@@ -1,8 +1,19 @@
-﻿@model List<ResultBrandDto>
+﻿@model ResultBrandDto
 @{
     ViewData["Title"] = "CreateBrand";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
 <h1>CreateBrand</h1>
+
+<form method="post">
+    <label>Vision</label>
+    <input type="hidden" asp-for="BrandID" class="form-control" />
+    <input type="text" asp-for="BrandName" class="form-control" />
+    <br />
+
+    <button class="brn btn-outline-primary">Save</button>
+
+</form>
+
 
