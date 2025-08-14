@@ -24,5 +24,6 @@ namespace Cental.WebUI.ViewComponents.Default
             var feature=_mapper.Map<List<ResultFeatureDto>>(value);
             return View(feature);
         }
+        
     }
 }

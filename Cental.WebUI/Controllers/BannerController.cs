@@ -67,7 +67,7 @@ namespace Cental.WebUI.Controllers
 
             return RedirectToAction("Index");
         }
-        [HttpGet]
+    
         public IActionResult DeleteBanner(int id)
         {
             _bannerService.TDelete(id);

@@ -1,0 +1,21 @@
+﻿@model ResultFeatureDto
+@{
+    ViewData["Title"] = "CreateFeature";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h1>CreateFeature</h1>
+<form method="post">
+    <label>Title</label>
+    <input type="hidden" asp-for="FeatureID" class="form-control" />
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Description</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br />
+    <label>Icon</label>
+    <input type="text" asp-for="Icon" class="form-control" />
+    <br />
+    <button class="brn btn-outline-primary">Save</button>
+
+</form>

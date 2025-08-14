@@ -1,0 +1,39 @@
+﻿@model List<ResultFeatureDto>
+@using Cental.DTOLayer.FeatureDtos
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+@{
+    int count = 0;
+}
+<h1>Feature</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Icon</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.Icon</td>
+
+            <td><a asp-action="DeleteFeature" asp-route-id="@item.FeatureID" class="btn btn-danger">Delete</a></td>
+            <td><a asp-action="UpdateFeature" asp-route-id="@item.FeatureID" class="btn btn-info">Update</a></td>
+        </tr>
+    }
+</table>
+
+<a asp-action="CreateFeature" asp-controller="AdminFeature" class="btn btn-outline-primary">Add New Feature</a>
+
+
+
