@@ -24,6 +24,12 @@ builder.Services.AddScoped<IBrandDal, EfBrandDal>();
 builder.Services.AddScoped<IFeatureService, FeatureManager>();
 builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
 
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
+builder.Services.AddScoped<IProcessService,ProcessManager>();
+builder.Services.AddScoped<IProcessDal, EfProcessDal>();
+
 
 
 
