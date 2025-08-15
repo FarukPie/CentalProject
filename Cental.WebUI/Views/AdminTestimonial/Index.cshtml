@@ -1,0 +1,41 @@
+﻿@using Cental.DTOLayer.TestimonialDtos
+@model List<ResultTestimonialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+@{
+    int count = 0;
+}
+<h1>Index</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Image Url</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Review</th>
+        <th>Comment</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Name</td>
+            <td>@item.Title</td>
+            <td>@item.Review</td>
+            <td>@item.Comment</td>
+            <td><a asp-action="DeleteTestimonial" asp-route-id="@item.TestimonialID" class="btn btn-danger">Delete</a></td>
+            <td><a asp-action="UpdateTestimonial" asp-route-id="@item.TestimonialID" class="btn btn-info">Update</a></td>
+        </tr>
+    }
+</table>
+
+<a asp-action="CreateTestimonial" asp-controller="AdminTestimonial" class="btn btn-outline-primary">Add New Testimonial </a>
+
+

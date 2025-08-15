@@ -1,0 +1,41 @@
+﻿@model ResultCarDto
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h1>UpdateCar</h1>
+<form method="post">
+    <input type="hidden" asp-for="CarID" />
+    <label>Model Name</label>
+    <input type="text" asp-for="ModelName" class="form-control" />
+    <br />
+    <label>Image Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <label>Price</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <br />
+    <label>Seat Count</label>
+    <input type="text" asp-for="SeatCount" class="form-control" />
+    <br />
+    <label>Gear Type</label>
+    <input type="text" asp-for="GearType" class="form-control" />
+    <br />
+    <label>Gas Type</label>
+    <input type="text" asp-for="GasType" class="form-control" />
+    <br />
+    <label>Year</label>
+    <input type="text" asp-for="Year" class="form-control" />
+    <br />
+    <label>Trasnmission</label>
+    <input type="text" asp-for="Transmission" class="form-control" />
+    <br />
+    <label>Kilometer</label>
+    <input type="text" asp-for="Kilometer" class="form-control" />
+    <br />
+
+
+    <button class="brn btn-outline-primary">Update</button>
+
+</form>

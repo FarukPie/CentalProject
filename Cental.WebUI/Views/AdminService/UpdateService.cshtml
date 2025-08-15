@@ -1,0 +1,25 @@
+﻿@model ResultServiceDto
+@using Cental.DTOLayer.ServiceDtos
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h1>UpdateService</h1>
+<form method="post">
+    <input type="hidden" asp-for="ServiceID" />
+    <label>Title</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Description</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br />
+    <label>Icon</label>
+    <input type="text" asp-for="Icon" class="form-control" />
+    <br />
+
+
+    <button class="brn btn-outline-primary">Update</button>
+
+</form>
+

@@ -1,0 +1,48 @@
+﻿@model List<ResultCarDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+@{
+    int count = 0;
+}
+<h1>Car</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Model Name</th>
+        <th>Image Url</th>
+        <th>Price</th>
+        <th>Seat Count</th>
+        <th>Gear Type</th>
+        <th>Year</th>
+        <th>Transmission</th>
+        <th>Kilometer</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.ModelName</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Price</td>
+            <td>@item.SeatCount</td>
+            <td>@item.GearType</td>
+            <td>@item.Year</td>
+            <td>@item.Transmission</td>
+            <td>@item.Kilometer</td>
+
+            <td><a asp-action="DeleteCar" asp-route-id="@item.CarID" class="btn btn-danger">Delete</a></td>
+            <td><a asp-action="UpdateCar" asp-route-id="@item.CarID" class="btn btn-info">Update</a></td>
+        </tr>
+    }
+</table>
+
+<a asp-action="CreateCar" asp-controller="AdminCar" class="btn btn-outline-primary">Add New Car </a>
+
+
+

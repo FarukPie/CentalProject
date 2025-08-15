@@ -1,0 +1,23 @@
+﻿@using Cental.DTOLayer.ServiceDtos
+@model ResultServiceDto
+@{
+    ViewData["Title"] = "CreateService";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h1>CreateService</h1>
+<form method="post">
+    <label>Title</label>
+    <input type="hidden" asp-for="ServiceID" class="form-control" />
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Description</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br />
+    <label>Icon</label>
+    <input type="text" asp-for="Icon" class="form-control" />
+    <br />
+
+    <button class="brn btn-outline-primary">Save</button>
+
+</form>

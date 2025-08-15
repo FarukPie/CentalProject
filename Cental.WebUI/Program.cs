@@ -30,6 +30,12 @@ builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<IProcessService,ProcessManager>();
 builder.Services.AddScoped<IProcessDal, EfProcessDal>();
 
+builder.Services.AddScoped<IServiceService, ServiceManager>();
+builder.Services.AddScoped<IServiceDal,EfServiceDal>();
+
+builder.Services.AddScoped<ICarService, CarManager>();
+builder.Services.AddScoped<ICarDal, EfCarDal>();
+
 
 
 

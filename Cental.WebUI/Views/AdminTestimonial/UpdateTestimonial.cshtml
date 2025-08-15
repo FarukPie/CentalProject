@@ -1,0 +1,32 @@
+﻿@using Cental.DTOLayer.TestimonialDtos
+@model ResultTestimonialDto
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h1>UpdateTestimonial</h1>
+<form method="post">
+    <input type="hidden" asp-for="TestimonialID" />
+    <label>Image Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <label>Name
+    </label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+    <label>Title</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Review</label>
+    <input type="text" asp-for="Review" class="form-control" />
+    <br />
+    <label>Comment</label>
+    <input type="text" asp-for="Comment" class="form-control" />
+    <br />
+
+
+
+    <button class="brn btn-outline-primary">Update</button>
+
+</form>
