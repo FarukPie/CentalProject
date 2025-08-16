@@ -19,6 +19,7 @@
         <th>Year</th>
         <th>Transmission</th>
         <th>Kilometer</th>
+        <th>Brand Name</th>
         <th>Delete</th>
         <th>Update</th>
     </tr>
@@ -35,6 +36,7 @@
             <td>@item.Year</td>
             <td>@item.Transmission</td>
             <td>@item.Kilometer</td>
+            <td>@item.Brand.BrandName</td>
 
             <td><a asp-action="DeleteCar" asp-route-id="@item.CarID" class="btn btn-danger">Delete</a></td>
             <td><a asp-action="UpdateCar" asp-route-id="@item.CarID" class="btn btn-info">Update</a></td>

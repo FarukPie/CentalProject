@@ -38,6 +38,11 @@ namespace Cental.BusinessLayer.Concreate
             return _carDal.GetById(id);
         }
 
+        public List<Car> TGetCarsWithBrands()
+        {
+            return _carDal.GetCarsWithBrands();
+        }
+
         public void TUpdate(Car entity)
         {
             _carDal.Update(entity);

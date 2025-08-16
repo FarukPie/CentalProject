@@ -1,4 +1,5 @@
 ﻿using Cental.EntityLayer.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace Cental.BusinessLayer.Abstract
 {
     public interface ICarService:IGenericService<Car>
     {
+        public List<Car> TGetCarsWithBrands();
+    
     }
 }

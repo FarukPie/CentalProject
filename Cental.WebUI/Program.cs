@@ -1,9 +1,12 @@
 ﻿using Cental.BusinessLayer.Abstract;
 using Cental.BusinessLayer.Concreate;
+using Cental.BusinessLayer.Validators;
 using Cental.DataAccessLayer.Abstract;
 using Cental.DataAccessLayer.Concreate;
 using Cental.DataAccessLayer.Context;
 using Cental.DataAccessLayer.Repostories;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,6 +39,7 @@ builder.Services.AddScoped<IServiceDal,EfServiceDal>();
 builder.Services.AddScoped<ICarService, CarManager>();
 builder.Services.AddScoped<ICarDal, EfCarDal>();
 
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters().AddValidatorsFromAssemblyContaining<BrandValidator>();
 
 
 
