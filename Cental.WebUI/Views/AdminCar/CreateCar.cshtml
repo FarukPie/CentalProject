@@ -1,42 +1,58 @@
 ﻿@model ResultCarDto
 @{
-    ViewData["Title"] = "CreateCar";
-    Layout = "~/Views/AdminLayout/Layout.cshtml";
+	ViewData["Title"] = "CreateCar";
+	Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
+<form method="post">
+	<div class="row">
 
+		<div class="col-lg-6">
+			<label>Model Name</label>
+			<input type="hidden" asp-for="CarID" class="form-control" />
+			<input type="text" asp-for="ModelName" class="form-control" />
+			<br />
+			<label>Imagine Url</label>
+			<input type="text" asp-for="ImageUrl" class="form-control" />
+			<br />
+			<label>Price</label>
+			<input type="text" asp-for="Price" class="form-control" />
+			<br />
+			<label>Seat Count</label>
+			<input type="text" asp-for="SeatCount" class="form-control" />
+			<br />
+			<label>Year</label>
+			<input type="text" asp-for="Year" class="form-control" />
+			<br />
+		</div>
+
+		<div class="col-lg-6">
+			<label>Brand</label>
+			<select asp-items="@ViewBag.brands" asp-for="BrandID" class="form-control">
+				<option>Choose Brand</option>
+			</select>
+			<br />
+			<label>Gas Type</label>
+			<select asp-items="@ViewBag.gasType" asp-for="GasType" class="form-control">
+				<option>Choose gas type</option>
+			</select>
+			<br />
+			<label>Gear Type</label>
+			<select asp-items="@ViewBag.gearType" asp-for="GearType" class="form-control">
+				<option>Choose gear Type</option>
+			</select><br />
+			<label>Transmission</label>
+			<input type="text" asp-for="Transmission" class="form-control" />
+			<br />
+			<label>Kilometer</label>
+			<input type="text" asp-for="Kilometer" class="form-control" />
+			<br />
+		</div>
+		<button class="brn btn-outline-primary">Save</button>
+
+	</div>
+</form>
 
 
 
 <form method="post">
-    <label>Model Name</label>
-    <input type="hidden" asp-for="CarID" class="form-control" />
-    <input type="text" asp-for="ModelName" class="form-control" />
-    <br />
-    <label>Imagine Url</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
-    <br />
-    <label>Price</label>
-    <input type="text" asp-for="Price" class="form-control" />
-    <br />
-    <label>Seat Count</label>
-    <input type="text" asp-for="SeatCount" class="form-control" />
-    <br />
-    <label>Gear Type</label>
-    <input type="text" asp-for="GearType" class="form-control" />
-    <br />
-    <label>Gas Type</label>
-    <input type="text" asp-for="GasType" class="form-control" />
-    <br />
-    <label>Year</label>
-    <input type="text" asp-for="Year" class="form-control" />
-    <br />
-    <label>Transmission</label>
-    <input type="text" asp-for="Transmission" class="form-control" />
-    <br />
-    <label>Kilometer</label>
-    <input type="text" asp-for="Kilometer" class="form-control" />
-    <br />
-
-    <button class="brn btn-outline-primary">Save</button>
-
 </form>
