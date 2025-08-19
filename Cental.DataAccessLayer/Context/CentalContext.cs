@@ -13,7 +13,9 @@ namespace Cental.DataAccessLayer.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=LAPTOP-GCC8HOTA\\SQLEXPRESS; database=CentalDb; integrated security=true; trustServerCertificate=true");
+            optionsBuilder.UseLazyLoadingProxies();
         }
+
         public DbSet<About> Abouts { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Brand> Brands { get; set; }

@@ -11,6 +11,6 @@ namespace Cental.EntityLayer.Entities
         public int ReviewID { get; set; }
         public int Rating { get; set; }
         public int CarID { get; set; }
-        public Car Car { get; set; }
+        public virtual Car Car { get; set; }
     }
 }

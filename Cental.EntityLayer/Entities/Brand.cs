@@ -10,6 +10,6 @@ namespace Cental.EntityLayer.Entities
     {
         public int BrandID { get; set; }
         public string BrandName { get; set; }
-        public List<Car> Cars { get; set; }
+        public virtual List<Car> Cars { get; set; }
     }
 }
