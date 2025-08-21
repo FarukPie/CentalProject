@@ -13,14 +13,16 @@ namespace Cental.WebUI.ViewComponents.Default
         public _DefaultBannerComponent(IBannerService banenrservice, IMapper mapper)
         {
             _banenrservice = banenrservice;
+
             _mapper = mapper;
         }
 
-        
+
         public IViewComponentResult Invoke()
         {
             var value = _banenrservice.TGetAll();
-            var banner=_mapper.Map<List<ResultBannerDto>>(value);
+            var banner = _mapper.Map<List<ResultBannerDto>>(value);
+
             return View(banner);
         }
     }
