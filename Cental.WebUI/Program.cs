@@ -5,6 +5,7 @@ using Cental.DataAccessLayer.Abstract;
 using Cental.DataAccessLayer.Concreate;
 using Cental.DataAccessLayer.Context;
 using Cental.DataAccessLayer.Repostories;
+using Cental.EntityLayer.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using System.Reflection;
@@ -13,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<CentalContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CentalContext>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IAboutService,AboutManager>();//about service gordugun zaman gıt about manager sınıfından bır nesne ornegı al ve ıslemı onunla yap.
