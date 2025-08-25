@@ -46,5 +46,22 @@ namespace Cental.BusinessLayer.Validators
             };
             
         }
+        public override IdentityError PasswordTooShort(int length)
+        {
+            return new IdentityError
+            {
+                Code = nameof(PasswordTooShort),
+                Description = $"Password must be at least {length} characters."
+            };
+        }
+        public override IdentityError DuplicateEmail(string email)
+        {
+            return new IdentityError
+            {
+                Code = nameof(DuplicateEmail),
+                Description = $"This account {email} has been registered before"
+            };
+        }
+
     }
 }

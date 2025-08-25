@@ -8,13 +8,24 @@ using Cental.DataAccessLayer.Repostories;
 using Cental.EntityLayer.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<CentalContext>();
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CentalContext>();
+builder.Services.AddIdentity<AppUser, AppRole>( cfg=>
+   
+    {
+        cfg.User.RequireUniqueEmail = true;
+        
+
+}
+    ).
+AddEntityFrameworkStores<CentalContext>().
+AddErrorDescriber<CustomErrorDescriber>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IAboutService,AboutManager>();//about service gordugun zaman gıt about manager sınıfından bır nesne ornegı al ve ıslemı onunla yap.
@@ -51,6 +62,13 @@ builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
 
 
 builder.Services.AddControllersWithViews();
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.LoginPath = "/Login/Index";
+    config.LoginPath = "/Login/Logout";
+}
+
+);
 
 var app = builder.Build();
 
@@ -66,8 +84,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-app.UseAuthorization();
+app.UseAuthentication();//sıtemde kayıtlı mı degıl
+app.UseAuthorization();//yetkısı var mı
 
 app.MapControllerRoute(
     name: "default",

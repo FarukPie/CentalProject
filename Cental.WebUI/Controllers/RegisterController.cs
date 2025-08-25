@@ -16,24 +16,32 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(UserRegisterDto model)
         {
-            var user = _mapper.Map<AppUser>(model);
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            //bir kucuk harf buyuk harf rakam ve ozel karakter en az 6 karakter
+
+            var user = _mapper.Map<AppUser>(model);
+
+            // Kullanıcıyı oluştur
             var result = await _usermanager.CreateAsync(user, model.Password);
-            if (!result.Succeeded)
+
+            if (result.Succeeded)
             {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(error.Code, error.Description);
-
-                }
-
+                // Başarılıysa login sayfasına yönlendir
+                return RedirectToAction("Index", "Login");
             }
-            return RedirectToAction("Index", "Login");
+
+            // Başarısızsa hataları modele ekle
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
+            // Aynı sayfayı geri döndür, hatalar View’da gözüksün
+            return View(model);
         }
+
     }
 }
 
