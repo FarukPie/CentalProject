@@ -8,6 +8,7 @@ using Cental.DataAccessLayer.Repostories;
 using Cental.EntityLayer.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.CodeAnalysis.FlowAnalysis;
 using System.Reflection;
 
@@ -59,7 +60,12 @@ builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsi
 builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepostories<>));
 builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
 
+builder.Services.AddControllersWithViews(option =>
+{
+    option.Filters.Add(new AuthorizeFilter());
 
+
+});
 
 builder.Services.AddControllersWithViews();
 builder.Services.ConfigureApplicationCookie(config =>

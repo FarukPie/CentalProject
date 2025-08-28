@@ -5,12 +5,19 @@ using System.Threading.Tasks;
 
 namespace Cental.WebUI.ViewComponents.AdminLayout
 {
-    public class _AdminLayoutSidebarComponent(UserManager<AppUser> _userManager):ViewComponent
+    public class _AdminLayoutSidebarComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> Invoke()
+        private readonly UserManager<AppUser> _userManager;
+
+        public _AdminLayoutSidebarComponent(UserManager<AppUser> userManager)
         {
-            var user = await _userManager.FindByIdAsync(User.Identity.Name);
-            ViewBag.nameSurname = string.Join(" ", user.FirstName, user.LastName);
+            _userManager = userManager;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.nameSurname = $"{user.FirstName} {user.LastName}";
             ViewBag.userImg = user.ImageUrl;
             return View();
         }

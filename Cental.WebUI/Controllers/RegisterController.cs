@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Cental.DTOLayer.UserDtos;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController(UserManager<AppUser> _usermanager, IMapper _mapper) : Controller
     {
         public IActionResult SignUp()
