@@ -1,0 +1,15 @@
+﻿@using Cental.DTOLayer.UserDtos
+@model UpdateRoleDto
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+	<input type="hidden" asp-for="Id" />
+	<label>Role Name</label>
+	<input asp-for="Name" class="form-control" />
+	<br />
+	<button class="btn btn-outline-dark">Update</button>
+</form>
+

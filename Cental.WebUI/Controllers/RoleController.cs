@@ -41,16 +41,43 @@ namespace Cental.WebUI.Controllers
         }
         public async Task<IActionResult> DeleteRole(int id)
         {
-            var role =await _roleManager.FindByIdAsync(id.ToString());
+            var role = await _roleManager.FindByIdAsync(id.ToString());
             await _roleManager.DeleteAsync(role);
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> UpdateRole(int id )
+        public async Task<IActionResult> UpdateRole(int id)
         {
             var role = await _roleManager.FindByIdAsync(id.ToString());
-            var updateDto=role.Adapt<UpdateRoleDto>();
+            var updateDto = role.Adapt<UpdateRoleDto>();
             return View(updateDto);
+        }
+        [HttpPost]
+        [HttpPost]
+        public async Task<IActionResult> UpdateRole(UpdateRoleDto model)
+        {
+          
+            var roleToUpdate = await _roleManager.FindByIdAsync(model.Id.ToString());
+
+            if (roleToUpdate == null)
+            {
+                ModelState.AddModelError(string.Empty, "Güncellenecek rol bulunamadı.");
+                return View(model);
+            }
+            roleToUpdate.Name = model.Name;
+            var result = await _roleManager.UpdateAsync(roleToUpdate);
+
+            if (!result.Succeeded)
+            {
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return View(model); 
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
