@@ -9,6 +9,11 @@ namespace Cental.BusinessLayer.Abstract
 {
     public interface IImageService
     {
-        Task<string> SaveImageAsync(IFormFile file)
+        /// <summary>
+        /// save an image file from the compputer to the projects wwwroot/images folder
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns> returns a string value for the models imageurl property </returns>
+        Task<string> SaveImageAsync(IFormFile file);
     }
 }

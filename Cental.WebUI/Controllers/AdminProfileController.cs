@@ -12,7 +12,9 @@ namespace Cental.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await _usermanager.FindByNameAsync(User.Identity.Name);
+
             var profileEditDto = user.Adapt<ProfileEditDto>();
+
             return View(profileEditDto);
         }
         [HttpPost]
@@ -28,11 +30,16 @@ namespace Cental.WebUI.Controllers
                 }
 
 
-                var updateUser = model.Adapt<AppUser>();
-                var result = await _usermanager.UpdateAsync(updateUser);
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.Email = model.Email;
+                user.ImageUrl = model.ImageUrl;
+                user.PhoneNumber = model.PhoneNumber;
+
+                var result = await _usermanager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "AdminAbout");
+                    return RedirectToAction("Index", "AdminProfile");
                 }
                 foreach (var item in result.Errors)
                 {
