@@ -1,0 +1,38 @@
+﻿@using Cental.DTOLayer.UserDtos
+@model List<ResultUserDto>
+@{
+    ViewData["Title"] = "Users List";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+@{
+    int count = 0;
+}
+<div class="alert alert-info">
+    <h5>For the site's operation, role names should be as follows:<strong>Admin, Manager, Member</strong></h5>
+</div>
+<h1>Role</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Name Surname</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Assign User</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.FullName</td>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            
+            <td><a asp-action="AssignRole" asp-route-id="@item.Id" class="btn btn-info">Assign Role</a></td>
+        </tr>
+    }
+</table>
+
+
+
+
