@@ -17,6 +17,7 @@
         <th>Name Surname</th>
         <th>User Name</th>
         <th>Email</th>
+        <th>Roles</th>
         <th>Assign User</th>
     </tr>
     @foreach (var item in Model)
@@ -27,7 +28,14 @@
             <td>@item.FullName</td>
             <td>@item.UserName</td>
             <td>@item.Email</td>
-            
+			<td>
+				@foreach (var role in item.Roles)
+				{
+                    @role <br />
+				}
+			</td>
+           
+
             <td><a asp-action="AssignRole" asp-route-id="@item.Id" class="btn btn-info">Assign Role</a></td>
         </tr>
     }

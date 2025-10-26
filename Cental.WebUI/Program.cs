@@ -74,6 +74,7 @@ builder.Services.ConfigureApplicationCookie(config =>
 {
     config.LoginPath = "/Login/Index";
     config.LoginPath = "/Login/Logout";
+    config.AccessDeniedPath = "/ErrorPage/AccessDenied";
 }
 
 );
@@ -90,6 +91,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStatusCodePagesWithReExecute("/ErrorPage/NotFound404");
 
 app.UseRouting();
 app.UseAuthentication();//sıtemde kayıtlı mı degıl
