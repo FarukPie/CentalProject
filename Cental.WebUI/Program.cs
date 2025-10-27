@@ -16,21 +16,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<CentalContext>();
-builder.Services.AddIdentity<AppUser, AppRole>( cfg=>
-   
+builder.Services.AddIdentity<AppUser, AppRole>(cfg =>
+
     {
         cfg.User.RequireUniqueEmail = true;
-        
 
-}
+
+    }
     ).
 AddEntityFrameworkStores<CentalContext>().
 AddErrorDescriber<CustomErrorDescriber>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-builder.Services.AddScoped<IAboutService,AboutManager>();//about service gordugun zaman gıt about manager sınıfından bır nesne ornegı al ve ıslemı onunla yap.
-builder.Services.AddScoped<IAboutDal,EfAboutDal>();
+builder.Services.AddScoped<IAboutService, AboutManager>();//about service gordugun zaman gıt about manager sınıfından bır nesne ornegı al ve ıslemı onunla yap.
+builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 
 builder.Services.AddScoped<IBannerService, BannerManager>();
 builder.Services.AddScoped<IBannerDal, EfBannerDal>();
@@ -44,11 +44,11 @@ builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
-builder.Services.AddScoped<IProcessService,ProcessManager>();
+builder.Services.AddScoped<IProcessService, ProcessManager>();
 builder.Services.AddScoped<IProcessDal, EfProcessDal>();
 
 builder.Services.AddScoped<IServiceService, ServiceManager>();
-builder.Services.AddScoped<IServiceDal,EfServiceDal>();
+builder.Services.AddScoped<IServiceDal, EfServiceDal>();
 
 builder.Services.AddScoped<ICarService, CarManager>();
 builder.Services.AddScoped<ICarDal, EfCarDal>();
@@ -100,5 +100,14 @@ app.UseAuthorization();//yetkısı var mı
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
+app.MapControllerRoute(
+  name: "areas",
+  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
+
 
 app.Run();

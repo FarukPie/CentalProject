@@ -10,6 +10,7 @@ namespace Cental.DTOLayer.UserDtos
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
+        public string ImageUrl{ get; set; }
         public string LastName { get; set; }
         public string FullName => string.Join(" ", FirstName, LastName);
         public string UserName { get; set; }
