@@ -53,6 +53,9 @@ builder.Services.AddScoped<IServiceDal, EfServiceDal>();
 builder.Services.AddScoped<ICarService, CarManager>();
 builder.Services.AddScoped<ICarDal, EfCarDal>();
 
+builder.Services.AddScoped<IUserSocialService, UserSocialManager>();
+builder.Services.AddScoped<IUserSocialDal, EfUserSocialDal>();
+
 builder.Services.AddScoped<IImageService, ImageService>();
 
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters().AddValidatorsFromAssemblyContaining<BrandValidator>();

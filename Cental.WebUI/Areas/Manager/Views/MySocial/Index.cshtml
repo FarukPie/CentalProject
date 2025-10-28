@@ -1,0 +1,33 @@
+﻿@using Cental.DTOLayer.UserSocialDtos
+@model List<ResultSocialUserDto>
+@{
+    ViewData["Title"] = "Social Medias";
+    Layout = "~/Areas/Manager/Views/ManagerLayout/Index.cshtml";
+}
+@{
+    int count = 0;
+}
+<h1>Social Medias</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Social Media</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>
+                <a href="@item.Url" target="_blank"><i class="@item.Icon"></i>@item.Title</a>
+            </td>
+            
+            <td><a asp-action="DeleteUserSocial" asp-route-id="@item.UserSocialId" class="btn btn-danger">Delete</a></td>
+            <td><a asp-action="UpdateUserSocial" asp-route-id="@item.UserSocialId " class="btn btn-info">Update</a></td>
+        </tr>
+    }
+</table>
+
+<a asp-action="CreateSocial" asp-controller="MySocial" class="btn btn-primary">Add New Social Media</a>
