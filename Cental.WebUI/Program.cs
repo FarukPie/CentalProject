@@ -101,15 +101,17 @@ app.UseAuthentication();//sıtemde kayıtlı mı degıl
 app.UseAuthorization();//yetkısı var mı
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
-
-app.MapControllerRoute(
   name: "areas",
   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 );
+
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Default}/{action=Index}/{id?}");
+
+
+
 
 
 
